@@ -2,6 +2,9 @@
 
 namespace App\Libraries;
 
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
+
 /**
  * Database class
  */
@@ -20,7 +23,14 @@ class Database extends \PDO
         try {
             parent::__construct($dsn, DB_USER, DB_PASS);
         } catch (\PDOException $e) {
-            die("DataBase Error: Database failed.<br>{$e->getMessage()}");
+            if ($_ENV['ENVIRONMENT'] != "production") {
+                die("DataBase Error: Database failed.<br>{$e->getMessage()}");
+            } else {
+                $log = new Logger('App');
+                $log->pushHandler(new StreamHandler(__DIR__ . './../../logs/errors.log', Logger::ERROR));
+
+                $log->error($e->getMessage(), $e->getTrace());
+            }
         }
     }
 

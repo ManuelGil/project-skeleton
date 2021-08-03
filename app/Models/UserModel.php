@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Entities\User;
 use App\Libraries\Database;
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 
 /**
  * UserModel class
@@ -34,9 +36,23 @@ class UserModel
 
             return $user;
         } catch (\PDOException $e) {
-            die("DataBase Error: The user could not be found.<br>{$e->getMessage()}");
+            if ($_ENV['ENVIRONMENT'] != "production") {
+                die("DataBase Error: The user could not be found.<br>{$e->getMessage()}");
+            } else {
+                $log = new Logger('App');
+                $log->pushHandler(new StreamHandler(__DIR__ . './../../logs/errors.log', Logger::ERROR));
+
+                $log->error($e->getMessage(), $e->getTrace());
+            }
         } catch (\Throwable $e) {
-            die("General Error: The user could not be found.<br>{$e->getMessage()}");
+            if ($_ENV['ENVIRONMENT'] != "production") {
+                die("General Error: The user could not be found.<br>{$e->getMessage()}");
+            } else {
+                $log = new Logger('App');
+                $log->pushHandler(new StreamHandler(__DIR__ . './../../logs/errors.log', Logger::ERROR));
+
+                $log->error($e->getMessage(), $e->getTrace());
+            }
         } finally {
             // Destroy the database connection
             $conn = null;
@@ -64,9 +80,23 @@ class UserModel
 
             return $user;
         } catch (\PDOException $e) {
-            die("DataBase Error: The user could not be found.<br>{$e->getMessage()}");
+            if ($_ENV['ENVIRONMENT'] != "production") {
+                die("DataBase Error: The user could not be found.<br>{$e->getMessage()}");
+            } else {
+                $log = new Logger('App');
+                $log->pushHandler(new StreamHandler(__DIR__ . './../../logs/errors.log', Logger::ERROR));
+
+                $log->error($e->getMessage(), $e->getTrace());
+            }
         } catch (\Throwable $e) {
-            die("General Error: The user could not be found.<br>{$e->getMessage()}");
+            if ($_ENV['ENVIRONMENT'] != "production") {
+                die("General Error: The user could not be found.<br>{$e->getMessage()}");
+            } else {
+                $log = new Logger('App');
+                $log->pushHandler(new StreamHandler(__DIR__ . './../../logs/errors.log', Logger::ERROR));
+
+                $log->error($e->getMessage(), $e->getTrace());
+            }
         } finally {
             // Destroy the database connection
             $conn = null;
@@ -94,9 +124,23 @@ class UserModel
 
             return $user;
         } catch (\PDOException $e) {
-            die("DataBase Error: The user could not be found.<br>{$e->getMessage()}");
+            if ($_ENV['ENVIRONMENT'] != "production") {
+                die("DataBase Error: The user could not be found.<br>{$e->getMessage()}");
+            } else {
+                $log = new Logger('App');
+                $log->pushHandler(new StreamHandler(__DIR__ . './../../logs/errors.log', Logger::ERROR));
+
+                $log->error($e->getMessage(), $e->getTrace());
+            }
         } catch (\Throwable $e) {
-            die("General Error: The user could not be found.<br>{$e->getMessage()}");
+            if ($_ENV['ENVIRONMENT'] != "production") {
+                die("General Error: The user could not be found.<br>{$e->getMessage()}");
+            } else {
+                $log = new Logger('App');
+                $log->pushHandler(new StreamHandler(__DIR__ . './../../logs/errors.log', Logger::ERROR));
+
+                $log->error($e->getMessage(), $e->getTrace());
+            }
         } finally {
             // Destroy the database connection
             $conn = null;
@@ -122,9 +166,23 @@ class UserModel
 
             return $users;
         } catch (\PDOException $e) {
-            die("DataBase Error: No results were obtained.<br>{$e->getMessage()}");
+            if ($_ENV['ENVIRONMENT'] != "production") {
+                die("DataBase Error: No results were obtained.<br>{$e->getMessage()}");
+            } else {
+                $log = new Logger('App');
+                $log->pushHandler(new StreamHandler(__DIR__ . './../../logs/errors.log', Logger::ERROR));
+
+                $log->error($e->getMessage(), $e->getTrace());
+            }
         } catch (\Throwable $e) {
-            die("General Error: No results were obtained.<br>{$e->getMessage()}");
+            if ($_ENV['ENVIRONMENT'] != "production") {
+                die("General Error: No results were obtained.<br>{$e->getMessage()}");
+            } else {
+                $log = new Logger('App');
+                $log->pushHandler(new StreamHandler(__DIR__ . './../../logs/errors.log', Logger::ERROR));
+
+                $log->error($e->getMessage(), $e->getTrace());
+            }
         } finally {
             // Destroy the database connection
             $conn = null;
@@ -173,9 +231,23 @@ class UserModel
                 return false;
             }
         } catch (\PDOException $e) {
-            die("DataBase Error: The user could not be updated.<br>{$e->getMessage()}");
+            if ($_ENV['ENVIRONMENT'] != "production") {
+                die("DataBase Error: The user could not be updated.<br>{$e->getMessage()}");
+            } else {
+                $log = new Logger('App');
+                $log->pushHandler(new StreamHandler(__DIR__ . './../../logs/errors.log', Logger::ERROR));
+
+                $log->error($e->getMessage(), $e->getTrace());
+            }
         } catch (\Throwable $e) {
-            die("General Error: The user could not be updated.<br>{$e->getMessage()}");
+            if ($_ENV['ENVIRONMENT'] != "production") {
+                die("General Error: The user could not be updated.<br>{$e->getMessage()}");
+            } else {
+                $log = new Logger('App');
+                $log->pushHandler(new StreamHandler(__DIR__ . './../../logs/errors.log', Logger::ERROR));
+
+                $log->error($e->getMessage(), $e->getTrace());
+            }
         } finally {
             // Destroy the database connection
             $conn = null;

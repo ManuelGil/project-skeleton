@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/composer
-# Edit at https://www.toptal.com/developers/gitignore?templates=composer
+# Created by https://www.toptal.com/developers/gitignore/api/composer,dotenv
+# Edit at https://www.toptal.com/developers/gitignore?templates=composer,dotenv
 
 ### Composer ###
 composer.phar
@@ -9,4 +9,10 @@ composer.phar
 # You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
 composer.lock
 
-# End of https://www.toptal.com/developers/gitignore/api/composer
+### dotenv ###
+.env
+
+### logs ###
+**logs/*.log
+
+# End of https://www.toptal.com/developers/gitignore/api/composer,dotenv
