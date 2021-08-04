@@ -1,5 +1,5 @@
 {
-    "name": "manuel/project-skeleton",
+    "name": "manuelgil/project-skeleton",
     "description": "This project is a base for building new projects in PHP",
     "license": "MIT",
     "autoload": {
