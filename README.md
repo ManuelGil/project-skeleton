@@ -47,7 +47,7 @@ See [CHANGELOG.md](./CHANGELOG.md)
 
 ## Code of Conduct
 
-See [CODE_OF_CONDUCT](./.github/CODE_OF_CONDUCT.md).
+See [CODE_OF_CONDUCT](./CODE_OF_CONDUCT.md).
 
 ## Authors
 
