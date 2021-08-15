@@ -17,10 +17,14 @@ This project is a base for building new projects in PHP.
 You can install this project via composer with the following commands:
 
 ```bash
-$ composer create-project manuelgil/project-skeleton
+$ composer create-project manuelgil/moodle-alternate-admin {directory} --prefer-dist
 ```
 
 ## Configure the project
+
+- Create a new database.
+
+- Import the [database.sql](./docs/database.sql) file.
 
 -   Copy the [`.env.example`](./.env.example)
     file and call it `.env`.
@@ -29,9 +33,21 @@ $ composer create-project manuelgil/project-skeleton
 $ cp .env.example .env
 ```
 
+-   Edit the environment variables in the .env file as you need.
+
+-   Make www-data the owner to `logs` folder.
+
+```bash
+$ sudo chown www-data: logs/
+```
+
 ## Changelog
 
 See [CHANGELOG.md](./CHANGELOG.md)
+
+## Code of Conduct
+
+See [CODE_OF_CONDUCT](./.github/CODE_OF_CONDUCT.md).
 
 ## Authors
 

@@ -3,6 +3,13 @@
     "description": "This project is a base for building new projects in PHP",
     "license": "MIT",
     "type": "project",
+    "authors": [
+        {
+            "name": "ManuelGil",
+            "email": "atencion.ms@outlook.com",
+            "role": "Developer"
+        }
+    ],
     "autoload": {
         "files": [
             "app/Config/Config.php"
