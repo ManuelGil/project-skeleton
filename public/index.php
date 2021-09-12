@@ -2,8 +2,8 @@
 
 include __DIR__ . './../vendor/autoload.php';
 
-use App\Models\UserModel;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use App\Controllers\AuthenticationController;
+use App\Controllers\DashboardController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
@@ -39,44 +39,34 @@ $context->fromRequest($request);
 $routes = new RouteCollection();
 
 // Add the routes to the map, and a handler for it.
-$routes->add('index', new Route('/', ['handler' => function (Request $request) {
-    return new Response(require '../app/views/index.php', 200);
-}]));
-$routes->add('login', new Route('/login', ['handler' => function (Request $request) {
-    $username = $request->request->get('username');
-    $password = $request->request->get('password');
-
-    $userModel = new UserModel();
-    $user = $userModel->findByUsername($username);
-
-    if ($user && password_verify($password, $user->password)) {
-        $_SESSION['login'] = true;
-        $_SESSION['id'] = $user->id;
-
-        return new RedirectResponse('/home', 302);
-    } else {
-        $_SESSION['message'] = "Bad credentials";
-
-        return new RedirectResponse('/', 302);
-    }
-}]));
-$routes->add('home', new Route('/home', ['handler' => function (Request $request) {
-    if (!$_SESSION['login']) {
-        return new RedirectResponse('/', 302);
-    }
-
-    $userModel = new UserModel();
-    $user = $userModel->findById($_SESSION['id']);
-
-    return new Response(require '../app/views/home.php', 200);
-}]));
-$routes->add('logout', new Route('/logout', ['handler' => function (Request $request) {
-    unset($_SESSION['login']);
-    unset($_SESSION['id']);
-    session_destroy();
-
-    return new RedirectResponse('/', 302);
-}]));
+$routes->add('index', new Route(
+    '/',
+    [
+        'controller' => AuthenticationController::class,
+        'method' => 'getLogin',
+    ]
+));
+$routes->add('login', new Route(
+    '/login',
+    [
+        'controller' => AuthenticationController::class,
+        'method' => 'postLogin',
+    ]
+));
+$routes->add('home', new Route(
+    '/home',
+    [
+        'controller' => DashboardController::class,
+        'method' => 'getIndex',
+    ]
+));
+$routes->add('logout', new Route(
+    '/logout',
+    [
+        'controller' => AuthenticationController::class,
+        'method' => 'getLogout',
+    ]
+));
 
 try {
     // Get the route matcher from the container ...
@@ -84,8 +74,9 @@ try {
     $route = $matcher->match($context->getPathInfo());
 
     // Dispatch the request to the route handler.
-    $callable = $route['handler'];
-    $response = $callable($request);
+    $controller = new $route['controller'];
+    $method = $route['method'];
+    $response = $controller->$method($request);
 } catch (ResourceNotFoundException $exception) {
     $response = new Response('Not Found', 404);
 } catch (Throwable $throwable) {
