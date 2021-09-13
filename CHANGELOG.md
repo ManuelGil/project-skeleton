@@ -7,7 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [2.0.0] - 2021-09-10
+## [2.0.1] - 2021-09-14
+
+### Fixed
+
+- Fix typos in README.md and Views.
+
+## [2.0.0] - 2021-09-12
 
 ### Added
 
@@ -34,7 +40,8 @@ Add classes Authentication Controller and Dashboard Controller.
 
 **first commit**
 
-[unreleased]: https://github.com/ManuelGil/project-skeleton/compare/v2.0.0...HEAD
+[unreleased]: https://github.com/ManuelGil/project-skeleton/compare/v2.0.1...HEAD
+[2.0.1]: https://github.com/ManuelGil/project-skeleton/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/ManuelGil/project-skeleton/compare/v1.0.1...v2.0.0
 [1.0.1]: https://github.com/ManuelGil/project-skeleton/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ManuelGil/project-skeleton/compare/v0.1.0...v1.0.0

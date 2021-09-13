@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang='es'>
+<html lang='en'>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-
-    <title>Home</title>
 
     <!-- Import CDNs -->
 
@@ -38,16 +36,9 @@
     <!-- Import Bootstrap 3 JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <!-- Import Date Picker -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-
-    <!-- Import Time Picker -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
-
     <!-- End of the imports -->
+
+    <title>Home</title>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -163,7 +154,9 @@
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <span class="hidden-xs"><?= $user->username; ?></span>
+                                <span class="hidden-xs">
+                                    <?= $user->username; ?>
+                                </span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -400,7 +393,7 @@
             <section class="content-header">
                 <h1>
                     Dashboard
-                    <small>Control panel</small>
+                    <small>Version 2.0</small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -436,16 +429,20 @@
 
         <!-- Main Footer -->
         <footer class="main-footer">
-            <!-- Default to the left -->
-            <p class="text-muted credit"><strong>&copy;<?= date('Y') ?></strong></p>
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.4.13
+            </div>
+            <strong>
+                Copyright © 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.
+            </strong>
+            All rights reserved.
         </footer>
+        <!-- End of the Main Footer -->
 
     </div>
     <!-- ./wrapper -->
 
     <!-- Import JavaScript -->
-    <!-- Import Validator, for Bootstrap 3 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
     <!-- Import AdminLTE -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.2/js/adminlte.min.js"></script>
 

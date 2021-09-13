@@ -37,14 +37,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `role_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `first_name`, `last_name`, `status`, `created_at`, `role_id`) VALUES
-(1, 'admin', 'admin@example.com', '$2y$10$sjjzoBYXJs2NTAcZpQIKjuCDAQyFvQM9cub/yFQRp4NyjKLpveg2W', 'Admin', 'User', 1, '2021-07-31 18:50:47', NULL);
+(1, 'admin', 'admin@localhost', '$2y$10$PJrDEW7bGxaF1DsMFEmUaealMnTrjQeCrksaxm3QoOBkyBYHnVRWy', 'Admin', 'User', 1, DEFAULT, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

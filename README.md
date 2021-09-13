@@ -17,7 +17,7 @@ This project is a base for building new projects in PHP.
 You can install this project via composer with the following commands:
 
 ```bash
-$ composer create-project manuelgil/moodle-alternate-admin {directory} --prefer-dist
+$ composer create-project --prefer-dist manuelgil/project-skeleton {directory} "2.*"
 ```
 
 ## Configure the project
@@ -40,6 +40,11 @@ $ cp .env.example .env
 ```bash
 $ sudo chown www-data: logs/
 ```
+
+## Access credentials
+
+- User: admin
+- Password: DmBv7(zvH9y?V?B~
 
 ## Changelog
 
